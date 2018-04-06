@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "UserInfomation";
+}
+
+<h2>UserInfomation</h2>
+
+@using (Html.BeginForm("UserInfomation", "Orders", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <h3>地址</h3> <textarea id="TextArea1" rows="2" cols="20" name="Address"></textarea>
+    <h3>号码</h3><input id="Text1" type="number" name="Phone" />
+    <input id="Submit1" type="submit" value="submit" />
+}

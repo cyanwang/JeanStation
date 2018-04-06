@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+  <condition>
+    <price>198</price>
+    <discount>0.9</discount>
+  </condition>
+  <condition>
+    <price>298</price>
+    <discount>0.8</discount>
+  </condition>
+  <condition>
+    <price>498</price>
+    <discount>0.7</discount>
+  </condition>
+</data>

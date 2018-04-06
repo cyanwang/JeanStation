@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
+    @*@Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")*@
+    <script src="~/Scripts/_LayoutBanner.js"></script>
+    <script src="~/Scripts/jquery-1.7.1.js"></script>
+    <script src="~/Scripts/jquery-ui-1.8.20.js"></script>
+</head>
+<body style="background-image: url(../../images/6.jpg) ;background-color:white; margin-top: -50px; font-family: Arial, Helvetica, sans-serif;">
+    <div>
+        <table style="width: 100%;" border="0">
+            <tr style="height: 200px">
+                <td style="height: 200px">
+                    <table style="width: 100%;" border="0">
+                        <tr>
+                            <td style="width: 261px; height: 200px; vertical-align: bottom">
+                                <img src="../../images/4.jpg" width="261" height="200" />
+                            </td>
+                            <td style="text-align: center; vertical-align:central; font-size: 60px; font-weight: bold; color: #003876; text-align: center; font: century;">
+                                JeanStation<br />
+                            </td>
+                            <td style="width: 261px; height: 200px; vertical-align: bottom">
+                                <img id="image" width="320" height="200" src="../../Images/SideBanner/3.jpg" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr style="height: 35px; background-color:red; vertical-align:central; ">
+                <td style="text-align:center;">
+                    <b style="color:black; font-size: medium;width: 200px">
+                        @Html.ActionLink("Home", "Index", "Home") |
+                        @*@Html.ActionLink("Shoppingcart", "Index", "Shoppingcart") |*@
+                        @Html.ActionLink("Orders", "Index", "Orders") |                     
+                       
+                         @{ 
+                             if (Session["UserInfo"] != null)
+                             {
+                                 <span>Hello, @Session["UserInfo"]</span>
+                                 <sup>
+                                     <span>@Html.ActionLink("Log out", "Logout", "UserAccount")</span>
+                                     </sup>
+                                 if (Session["UserInfo"].ToString() == "wangyan")
+                                 {
+                                    <sup>
+                                        <span>@Html.ActionLink("Manage", "Index", "Product")</span>
+                                    </sup>
+                                 }
+                                 else
+                                 {
+                                    @Html.ActionLink("Shoppingcart", "Index", "Shoppingcart")
+                                 }
+                             }
+                             else
+                             {
+                                 <sup>
+                                     <span>@Html.ActionLink("Login","Userlogin","UserAccount");</span>
+                                     </sup>
+                             }
+                         }
+                    </b>
+                    @{
+                        Html.RenderPartial("_LoginPartial");
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table style="width: 100%;" border="0">
+                        <tr>
+                            <td>&nbsp;</td>
+
+                            <td style="background-color:#FFFFFF">
+                                <table style="width: 98%;" border="0">
+                                    <tr>
+
+                                        <td style="width: 15%; text-align: left; vertical-align: top; background-color:white">
+                                            <b style="color:black; font-size: large;width: 200px">
+                                                <br />
+                                                <br />
+                                                @Html.ActionLink("Men's Shirt", "malecloth", "Home") <br /><br />
+                                                @Html.ActionLink("Women's Shirt", "womancloth", "Home") <br /><br />
+                                                @Html.ActionLink("Men's Trousers", "mantrousers", "Home") <br /><br />
+                                                @Html.ActionLink("Women's Trousers", "womantrousers", "Home") <br /><br />
+                                                @Html.ActionLink("Others", "other", "Home")<br /><br />
+                                                </br>
+                                        </td>
+
+
+                                        <td style="vertical-align: top; width:85%">
+
+                                            @RenderBody()
+
+                                            <p>&nbsp;</p>
+                                        </td>
+
+
+
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 10%">&nbsp;</td>
+                            <td style="text-align: right; font-size: 11px;">&copy;@DateTime.Now.Year JeanStation. All rights reserved.</td>
+                            <td style="width: 10%">&nbsp;</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+

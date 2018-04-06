@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "ProductDetails";
+}
+@{
+    var products = Model;
+ }
+    @if (products!=null)
+    {
+        foreach (var p in products)
+        {
+        <h4>商品编号：@p.ProductId</h4>
+        <h4>商品名称：@p.ProductName </h4>
+        <h4>商品类别：@p.Category</h4>
+        <h4>更多：    @p.Detail</h4>
+        <h4>商品图片：<img src="~/Images/@p.Image" /></h4>
+        <h4>商品价格：@p.Price</h4>
+        <h4>商品已售： @p.Sold</h4>
+         Session["ProductId"] = @p.ProductId;
+        }
+        using (Html.BeginForm("ProductDetails", "Home", FormMethod.Post))
+        {
+            @Html.Label("购买数量：");             
+            <input type="number" name="number" />
+            <input type="submit" value="确认" />
+        }
+
+    }
+
+
+
+
+
+
+
+
+
